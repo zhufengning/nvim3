@@ -15,27 +15,10 @@ return {
         pyright = {
           enabled = true,
         },
-        basedpyright = {
-          enabled = false,
-        },
-        ruff = {
-          enabled = false,
-          autostart = false,
-        },
         ruff_lsp = {
           enabled = false,
           autostart = false,
         },
-      },
-      setup = {
-        ruff = function()
-          LazyVim.lsp.on_attach(function(client, _)
-            if client.name == "ruff" then
-              -- Disable hover in favor of Pyright
-              client.server_capabilities.hoverProvider = false
-            end
-          end)
-        end,
       },
     },
   },
